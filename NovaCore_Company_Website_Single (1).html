@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaCore — modern digital solutions for ambitious companies.">
+  <title>NovaCore — Digital Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --ink:#11110f;--paper:#f4f1e9;--cream:#e8e2d3;--lime:#d7ff52;--muted:#77736b;
+  --serif:Georgia,"Times New Roman",serif;--sans:"DM Sans",sans-serif;--display:"Space Grotesk",sans-serif
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);overflow-x:hidden}
+body.loaded .hero-content>*{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.noise{position:fixed;inset:0;pointer-events:none;opacity:.055;z-index:100;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+.nav{height:82px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;position:absolute;top:0;width:100%;z-index:10}
+.logo{font:700 15px var(--display);letter-spacing:.08em;display:flex;align-items:center;gap:10px}
+.logo-mark{display:grid;place-items:center;width:29px;height:29px;border:1.5px solid;border-radius:50%;font-size:12px}
+nav{display:flex;align-items:center;gap:38px;font-size:13px;font-weight:600}
+nav a{transition:.25s}nav a:hover{opacity:.55}.nav-cta{background:var(--ink);color:var(--paper);padding:12px 18px;border-radius:30px}.nav-cta span{margin-left:9px}
+.menu-btn{display:none;border:0;background:none}
+.hero{min-height:790px;height:100vh;max-height:1000px;position:relative;overflow:hidden;padding:180px 8vw 80px;display:flex;align-items:center}
+.hero-content{max-width:900px;position:relative;z-index:3}
+.eyebrow{font:600 11px var(--display);letter-spacing:.15em;color:#67635c;margin-bottom:25px}
+.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4f8f2c;margin-right:8px;box-shadow:0 0 0 0 #4f8f2c;animation:pulse 2s infinite}
+h1,h2{font-family:var(--display);font-weight:600;letter-spacing:-.06em;line-height:.9}
+h1{font-size:clamp(68px,10vw,150px)}h1 em,h2 em{font-family:var(--serif);font-weight:400;letter-spacing:-.07em}
+.hero-text{font-size:17px;line-height:1.65;max-width:530px;margin:38px 0;color:#56524a}
+.hero-actions{display:flex;align-items:center;gap:30px}.btn{padding:17px 23px;border-radius:50px;font-weight:600;font-size:13px;transition:transform .25s,box-shadow .25s}.btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px #1112}.btn-dark{background:var(--ink);color:var(--paper)}.btn span{margin-left:25px}.text-link{font-size:13px;font-weight:600}.text-link span{margin-left:15px}
+.hero-glow{position:absolute;border-radius:50%;filter:blur(1px);animation:float 8s ease-in-out infinite}.glow-one{width:480px;height:480px;right:4%;top:18%;background:radial-gradient(circle at 40% 40%,#d7ff52 0,#d7ff5288 35%,transparent 70%);opacity:.85}.glow-two{width:300px;height:300px;right:28%;bottom:-120px;background:#e7bca6;filter:blur(50px);opacity:.65;animation-delay:-3s}
+.orbit{position:absolute;border:1px solid #1112;border-radius:50%;pointer-events:none}.orbit-one{width:700px;height:700px;right:-90px;top:10%;animation:spin 24s linear infinite}.orbit-two{width:520px;height:520px;right:0;top:21%;animation:spin 18s linear infinite reverse}.orbit-one:after,.orbit-two:after{content:"";position:absolute;width:9px;height:9px;background:var(--ink);border-radius:50%;top:50%;left:-4px}
+.floating-card{position:absolute;z-index:4;background:#fffdf6d9;backdrop-filter:blur(12px);border:1px solid #fff;border-radius:14px;padding:13px 16px;font:600 12px var(--display);box-shadow:0 15px 40px #1d19100f;animation:cardFloat 5s ease-in-out infinite}.card-a{right:11%;top:27%}.card-a span{color:#6e9632;margin-right:7px}.card-b{right:25%;top:63%;font-size:22px}.card-b small{display:block;font:400 9px var(--sans);color:#777;margin-top:3px}.card-c{right:5%;bottom:16%;animation-delay:-2s}.card-c span{margin-right:8px;color:#b67c55}.scroll-note{position:absolute;bottom:38px;left:8vw;font:600 10px var(--display);letter-spacing:.13em}.scroll-note span{margin-left:14px}.hero-number{position:absolute;right:5vw;bottom:38px;font:600 10px var(--display);letter-spacing:.1em}
+.marquee{background:var(--ink);color:var(--paper);overflow:hidden;padding:20px 0;white-space:nowrap}.marquee-track{display:flex;align-items:center;gap:32px;width:max-content;animation:marquee 22s linear infinite}.marquee span{font:600 13px var(--display);letter-spacing:.12em}.marquee b{color:var(--lime)}
+.section{padding:130px 8vw}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:70px;gap:40px}.section-head h2{font-size:clamp(50px,6vw,90px)}.section-copy{max-width:310px;color:var(--muted);line-height:1.6;font-size:14px}
+.projects{display:grid;grid-template-columns:1.15fr .85fr;gap:70px 35px}.project-large{grid-row:span 2}.project-art{height:390px;position:relative;overflow:hidden;border-radius:3px}.project-large .project-art{height:590px}.project-art>span{position:absolute;top:20px;left:20px;font:600 11px var(--display);opacity:.6}.art-one{background:#cfddd2}.art-circle{width:65%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 30%,#f5b9a1,#b87965 55%,#55473f);position:absolute;left:18%;top:18%;box-shadow:35px 30px 0 #a9bd9e;animation:slowspin 12s ease-in-out infinite}.art-label{position:absolute;bottom:25px;left:25px;font:700 11px var(--display);letter-spacing:.12em}.art-two{background:#d8d2c3;display:grid;place-items:center}.dashboard{width:65%;height:60%;background:#171714;color:white;border-radius:8px;padding:20px;box-shadow:20px 20px 0 #aaa391}.dashboard i{display:inline-block;width:5px;height:5px;background:#d7ff52;border-radius:50%;margin-right:4px}.dashboard strong{display:block;font:500 48px var(--display);margin-top:50px}.dashboard small{color:#aaa}.art-three{background:#c7d2de;display:grid;place-items:center}.package{width:150px;height:170px;background:#20211e;color:#d7ff52;display:grid;place-items:center;font:600 80px var(--display);transform:rotate(-8deg);box-shadow:20px 20px 0 #a9b6c2;transition:.5s}.project:hover .package{transform:rotate(0) translateY(-8px)}.project-meta{padding:19px 0;display:grid;grid-template-columns:1fr auto;gap:8px}.project-meta h3{font:600 21px var(--display)}.project-meta p{color:var(--muted);font-size:12px}.project-meta a{grid-column:2;grid-row:1/3;font-size:11px;font-weight:600;align-self:center}
+.services{background:#ded9cc}.service-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #aaa398}.service{padding:35px 24px 25px 0;border-right:1px solid #aaa398;min-height:260px;position:relative}.service:not(:first-child){padding-left:24px}.service:last-child{border-right:0}.service>span{font:600 11px var(--display);color:#888}.service h3{font:600 25px var(--display);margin:70px 0 16px;letter-spacing:-.04em}.service p{font-size:13px;line-height:1.6;color:#69655d;max-width:230px}.service a{position:absolute;bottom:0;font-size:11px;font-weight:600}
+.statement{min-height:650px;padding:150px 8vw;position:relative;overflow:hidden;background:var(--ink);color:var(--paper)}.statement .eyebrow{color:#aaa}.statement h2{font-size:clamp(48px,7vw,105px);position:relative;z-index:2;max-width:1050px}.statement h2 em{color:var(--lime)}.statement>p:last-child{max-width:360px;line-height:1.7;color:#aaa;margin-top:45px;font-size:14px}.statement-shape{position:absolute;width:650px;height:650px;border-radius:50%;right:-180px;top:60px;border:1px solid #ffffff22;box-shadow:0 0 0 80px #ffffff05,0 0 0 160px #ffffff03;animation:spin 30s linear infinite}.statement-shape:after{content:"✦";position:absolute;top:20%;left:15%;font-size:30px;color:var(--lime)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #aaa398}.steps>div{padding:30px 25px 0 0;border-right:1px solid #aaa398;min-height:220px}.steps>div:not(:first-child){padding-left:25px}.steps>div:last-child{border:0}.step-num{font:600 12px var(--display);margin-bottom:70px}.steps h3{font:600 24px var(--display);margin-bottom:10px}.steps p{color:var(--muted);font-size:13px;line-height:1.6;max-width:220px}
+.contact{min-height:620px;background:var(--lime);position:relative;overflow:hidden;padding:125px 8vw}.contact .eyebrow{color:#454d20}.contact h2{font-size:clamp(65px,9vw,135px);position:relative;z-index:2}.contact h2 em{color:#655f31}.contact-email{display:inline-block;margin-top:60px;border-bottom:1px solid #222;padding-bottom:8px;font:600 18px var(--display);position:relative;z-index:2}.contact-orb{position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid #2225;right:-40px;top:100px;box-shadow:0 0 0 50px #22205,0 0 0 100px #22203;animation:spin 25s linear infinite}
+footer{background:#11110f;color:#aaa;padding:35px 8vw;display:flex;align-items:center;justify-content:space-between;font-size:11px}footer .logo{color:var(--paper)}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@keyframes pulse{70%{box-shadow:0 0 0 7px #4f8f2c00}100%{box-shadow:0 0 0 0 #4f8f2c00}}@keyframes float{50%{transform:translate(20px,-25px) scale(1.04)}}@keyframes cardFloat{50%{transform:translateY(-13px) rotate(1deg)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes slowspin{50%{transform:scale(1.06) rotate(8deg)}}@keyframes marquee{to{transform:translateX(-50%)}}
+@media(max-width:800px){.nav{height:70px}.menu-btn{display:flex;flex-direction:column;gap:5px}.menu-btn span{width:24px;height:1px;background:var(--ink)}nav{display:none;position:absolute;top:70px;right:5vw;left:5vw;background:var(--paper);padding:25px;flex-direction:column;align-items:flex-start;box-shadow:0 20px 40px #1112}.nav.open nav{display:flex}.hero{min-height:760px;padding:150px 7vw 80px}.hero-glow{right:-150px}.orbit-one{right:-300px}.orbit-two{right:-220px}.floating-card{display:none}.scroll-note{left:7vw}.hero-number{right:7vw}h1{font-size:clamp(58px,16vw,90px)}.section{padding:90px 7vw}.section-head{display:block;margin-bottom:45px}.section-copy{margin-top:25px}.projects{display:block}.project{margin-bottom:45px}.project-large .project-art,.project-art{height:390px}.service-grid,.steps{grid-template-columns:1fr 1fr}.service{border-bottom:1px solid #aaa398}.service:nth-child(2){border-right:0}.service:nth-child(3),.service:nth-child(4){border-bottom:0}.steps>div:nth-child(2){border-right:0}.steps>div:nth-child(-n+2){border-bottom:1px solid #aaa398}.statement{padding:100px 7vw;min-height:570px}.statement-shape{right:-250px}.contact{padding:100px 7vw;min-height:570px}.contact-orb{right:-260px}footer{padding:28px 7vw;flex-wrap:wrap;gap:20px}footer p{order:3;width:100%}}
+@media(max-width:520px){.hero-text{font-size:15px}.hero-actions{gap:18px;flex-wrap:wrap}.btn{padding:15px 18px}.service-grid,.steps{grid-template-columns:1fr}.service,.service:not(:first-child){padding:28px 0;min-height:220px;border-right:0;border-bottom:1px solid #aaa398}.service h3{margin:50px 0 14px}.steps>div,.steps>div:not(:first-child){padding:28px 0;border-right:0!important;border-bottom:1px solid #aaa398!important;min-height:190px}.step-num{margin-bottom:45px}.steps>div:last-child{border-bottom:0!important}.statement h2{font-size:46px}.contact h2{font-size:60px}.contact-email{font-size:15px}}
+
+</style>
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="nav">
+    <a class="logo" href="#home"><span class="logo-mark">N</span> NOVACORE</a>
+    <button class="menu-btn" aria-label="Open menu"><span></span><span></span></button>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Let's talk <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-glow glow-one"></div>
+      <div class="hero-glow glow-two"></div>
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <div class="floating-card card-a"><span>●</span> Strategy</div>
+      <div class="floating-card card-b">+38% <small>Growth</small></div>
+      <div class="floating-card card-c"><span>✦</span> Digital</div>
+
+      <div class="hero-content">
+        <p class="eyebrow"><span class="pulse"></span> DIGITAL STUDIO · EST. 2026</p>
+        <h1>We build brands<br><em>that move.</em></h1>
+        <p class="hero-text">NovaCore turns ambitious ideas into memorable digital experiences, powerful brands, and products people love to use.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-dark">Explore our work <span>↗</span></a>
+          <a href="#services" class="text-link">What we do <span>↓</span></a>
+        </div>
+      </div>
+
+      <div class="scroll-note">SCROLL TO EXPLORE <span>↓</span></div>
+      <div class="hero-number">01 / 05</div>
+    </section>
+
+    <section class="marquee" aria-label="Company capabilities">
+      <div class="marquee-track">
+        <span>BRAND STRATEGY</span><b>✦</b><span>WEB DESIGN</span><b>✦</b><span>DEVELOPMENT</span><b>✦</b><span>E-COMMERCE</span><b>✦</b><span>BRAND STRATEGY</span><b>✦</b><span>WEB DESIGN</span><b>✦</b><span>DEVELOPMENT</span><b>✦</b><span>E-COMMERCE</span><b>✦</b>
+      </div>
+    </section>
+
+    <section class="section work" id="work">
+      <div class="section-head">
+        <div><p class="eyebrow">SELECTED WORK</p><h2>Ideas made <em>real.</em></h2></div>
+        <p class="section-copy">A selection of digital experiences designed to make brands impossible to ignore.</p>
+      </div>
+      <div class="projects">
+        <article class="project project-large">
+          <div class="project-art art-one"><div class="art-circle"></div><span>01</span><div class="art-label">AURA / WELLNESS</div></div>
+          <div class="project-meta"><h3>Aura Wellness</h3><p>Brand identity · E-commerce · Web design</p><a href="#contact">View case study ↗</a></div>
+        </article>
+        <article class="project">
+          <div class="project-art art-two"><div class="dashboard"><i></i><i></i><i></i><strong>92.8%</strong><small>Performance</small></div><span>02</span></div>
+          <div class="project-meta"><h3>Metric Labs</h3><p>Web application · UI/UX</p><a href="#contact">View case study ↗</a></div>
+        </article>
+        <article class="project">
+          <div class="project-art art-three"><div class="package">N</div><span>03</span></div>
+          <div class="project-meta"><h3>Northline Goods</h3><p>E-commerce · Art direction</p><a href="#contact">View case study ↗</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="section-head"><div><p class="eyebrow">WHAT WE DO</p><h2>From first idea<br>to <em>final pixel.</em></h2></div></div>
+      <div class="service-grid">
+        <div class="service"><span>01</span><h3>Brand & Strategy</h3><p>Positioning, visual identity, art direction, and a clear digital voice.</p><a href="#contact">Learn more ↗</a></div>
+        <div class="service"><span>02</span><h3>Web Design</h3><p>Conversion-focused interfaces with thoughtful motion and exceptional UX.</p><a href="#contact">Learn more ↗</a></div>
+        <div class="service"><span>03</span><h3>Development</h3><p>Fast, responsive websites and web applications built for real-world growth.</p><a href="#contact">Learn more ↗</a></div>
+        <div class="service"><span>04</span><h3>E-commerce</h3><p>Beautiful online stores designed around customers, products, and results.</p><a href="#contact">Learn more ↗</a></div>
+      </div>
+    </section>
+
+    <section class="statement" id="about">
+      <div class="statement-shape"></div>
+      <p class="eyebrow">THE NOVACORE APPROACH</p>
+      <h2>Good design gets attention.<br><em>Great design gets remembered.</em></h2>
+      <p>We combine strategy, design, technology, and motion to create digital experiences with purpose.</p>
+    </section>
+
+    <section class="section process">
+      <div class="section-head"><div><p class="eyebrow">HOW WE WORK</p><h2>Simple process.<br><em>Serious craft.</em></h2></div></div>
+      <div class="steps">
+        <div><div class="step-num">01</div><h3>Discover</h3><p>We learn about your goals, audience, and opportunity.</p></div>
+        <div><div class="step-num">02</div><h3>Design</h3><p>We shape the visual direction and experience together.</p></div>
+        <div><div class="step-num">03</div><h3>Build</h3><p>We turn approved ideas into a fast, polished product.</p></div>
+        <div><div class="step-num">04</div><h3>Launch</h3><p>We test, refine, and help your new digital presence go live.</p></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+        <p class="eyebrow">HAVE A PROJECT?</p>
+        <h2>Let's make<br><em>something move.</em></h2>
+        <a class="contact-email" href="mailto:hello@novacore.studio">hello@novacore.studio ↗</a>
+      </div>
+      <div class="contact-orb"></div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#home"><span class="logo-mark">N</span> NOVACORE</a>
+    <p>Digital experiences for ambitious brands.</p>
+    <span>© 2026 NovaCore Studio</span>
+  </footer>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
+
+  const nav = document.querySelector(".nav");
+  const menu = document.querySelector(".menu-btn");
+  menu.addEventListener("click", () => nav.classList.toggle("open"));
+
+  document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => nav.classList.remove("open"));
+  });
+
+  // Small parallax effect for the decorative hero elements
+  const hero = document.querySelector(".hero");
+  const cards = document.querySelectorAll(".floating-card");
+  hero.addEventListener("mousemove", e => {
+    const x = (e.clientX / innerWidth - .5);
+    const y = (e.clientY / innerHeight - .5);
+    cards.forEach((card, i) => {
+      const amount = (i + 1) * 8;
+      card.style.transform = `translate(${x * amount}px, ${y * amount}px)`;
+    });
+  });
+  hero.addEventListener("mouseleave", () => {
+    cards.forEach(card => card.style.transform = "");
+  });
+
+  // Reveal sections as they enter the viewport
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.12});
+
+  document.querySelectorAll(".section, .statement, .contact").forEach(section => {
+    section.classList.add("reveal");
+    observer.observe(section);
+  });
+});
+</script>
+</body>
+</html>
